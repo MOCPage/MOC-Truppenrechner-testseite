@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MOC Truppenrechner</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MOC Truppenrechner</h1>
+  </header>
+
+  <main>
+    <form id="truppenForm">
+      <label>Anzahl Truppen <input type="number" id="anzahlTruppen"></label><span class="info" onclick="openInfo('infoTruppen')">ℹ️</span>
+      <div class="infobox" id="infoTruppen"><span class="close" onclick="closeInfo('infoTruppen')">&times;</span>
+        <p>Gib hier deine Anzahl an Bogenschützen an.</p>
+      </div>
+      <br>
+
+      <label>Anzahl Märsche <input type="number" id="anzahlMaersche"></label><br>
+
+      <label>Haustier Buff <input type="number" id="haustierBuff"></label><span class="info" onclick="openInfo('infoHaustier')">ℹ️</span>
+      <div class="infobox" id="infoHaustier"><span class="close" onclick="closeInfo('infoHaustier')">&times;</span>
+        <img src="img/Haustier.jpg" alt="Haustier Info">
+        <p>Trage den rot markierten Bereich ein.</p>
+      </div>
+      <br>
+
+      <label>Cyrille Buff <input type="number" id="cyrilleBuff"></label><span class="info" onclick="openInfo('infoCyrille')">ℹ️</span>
+      <div class="infobox" id="infoCyrille"><span class="close" onclick="closeInfo('infoCyrille')">&times;</span>
+        <img src="img/Cyrille.jpg" alt="Cyrille Info">
+        <p>Trage den rot markierten Bereich ein.</p>
+      </div>
+      <br>
+
+      <label>Schwadronengröße <input type="number" id="schwadronGroesse"></label><span class="info" onclick="openInfo('infoSchwadron')">ℹ️</span>
+      <div class="infobox" id="infoSchwadron"><span class="close" onclick="closeInfo('infoSchwadron')">&times;</span>
+        <img src="img/schwadron.jpg" alt="Schwadron Info">
+        <p>Trage deine Schwadronengröße ein. Wichtig: keine Buffs aktiv haben.</p>
+      </div>
+      <br>
+
+      <label>Anzahl Truppen pro Marsch <input type="text" id="zwischensumme1" readonly></label><br>
+      <label>Totale Schwadronengröße <input type="text" id="zwischensumme2" readonly></label><br>
+      <label>Endergebnis (%) <input type="text" id="endergebnis" readonly></label><br>
+
+      <button type="button" class="green" onclick="berechnen()">Berechnen</button>
+      <button type="reset" class="red">Zurücksetzen</button>
+    </form>
+  </main>
+</body>
+</html>
