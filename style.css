@@ -146,3 +146,21 @@ html[dir="rtl"] .info-box{left:auto;right:100%;margin-left:0;margin-right:12px}
   .disp { font-size: 0.8rem; }
   .actions button { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
 }
+/* --- kompakteres Sperren-Feld --- */
+.tableHeader, .marchRow {
+  grid-template-columns: 45px 1fr 180px 220px;
+}
+
+@media (max-width: 768px) {
+  .tableHeader {
+    grid-template-columns: 45px 1fr 90px 110px;
+  }
+  .marchRow {
+    grid-template-columns: 45px 1fr 90px 110px;
+    padding-left: 24px;
+  }
+  .marchRow.locked::before {
+    left: 4px;
+    font-size: 0.95rem;
+  }
+}
