@@ -2,14 +2,14 @@
 <html lang="de">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>MOC Truppenrechner</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
 <header class="header">
-  <h1 id="siteTitle" data-i18n="site_title">MOC Truppenrechner</h1>
-  <div class="controls">
+  <h1 data-i18n="site_title">MOC Truppenrechner</h1>
+  <div class="header-controls">
     <select id="langSelect" aria-label="Sprache wählen">
       <option value="de">🇩🇪 Deutsch</option>
       <option value="en">🇬🇧 English</option>
@@ -18,83 +18,125 @@
       <option value="tr">🇹🇷 Türkçe</option>
       <option value="ar">🇸🇦 العربية</option>
     </select>
+    <button id="helpBtn" class="help-btn">ℹ️ Hilfe</button>
   </div>
 </header>
+
+<!-- Hilfe-Popup -->
+<div id="helpModal" class="modal hidden">
+  <div class="modal-content">
+    <button id="closeHelp" class="close-btn">❌</button>
+    <h2 data-i18n="help_title">MOC Truppenrechner – Hilfe</h2>
+    <div class="help-text" id="helpText">
+      <!-- help text will be injected by translations.js for each language -->
+    </div>
+  </div>
+</div>
 
 <main class="main">
   <section class="panel left">
     <h2 data-i18n="left_title">🧮 Basisrechner für gleichmässig verteilte Truppen</h2>
 
-    <label data-i18n="label_truppen">Anzahl Truppen
-      <button class="info-btn" data-info="truppen" aria-label="Info">ℹ️</button>
-    </label>
-    <input id="inputTruppen" type="number" min="0" placeholder="z. B. 120000">
+    <div class="field-row" data-info-key="truppen">
+      <div class="field-left">
+        <label for="inputTruppen" data-i18n="lbl_troops">
+          Anzahl Truppen
+          <button type="button" class="info-icon" aria-label="Info">ℹ️</button>
+        </label>
+        <input id="inputTruppen" type="number" min="0"/>
+      </div>
+      <div class="info-box" aria-hidden="true">
+        <img class="info-img hidden" alt=""/>
+        <p class="info-text"></p>
+      </div>
+    </div>
 
-    <label data-i18n="label_maersche">Anzahl Märsche
-      <button class="info-btn" data-info="maersche" aria-label="Info">ℹ️</button>
-    </label>
-    <input id="inputMaersche" type="number" min="1" placeholder="">
+    <div class="field-row" data-info-key="maersche">
+      <div class="field-left">
+        <label for="inputMaersche" data-i18n="lbl_marches">
+          Anzahl Märsche
+          <button type="button" class="info-icon" aria-label="Info">ℹ️</button>
+        </label>
+        <input id="inputMaersche" type="number" min="1"/>
+      </div>
+      <div class="info-box" aria-hidden="true">
+        <img class="info-img hidden" alt=""/>
+        <p class="info-text"></p>
+      </div>
+    </div>
 
-    <label data-i18n="label_haustier">Haustier Buff
-      <button class="info-btn" data-info="haustier" aria-label="Info">ℹ️</button>
-    </label>
-    <input id="inputHaustier" type="number" min="0" placeholder="0">
+    <div class="field-row" data-info-key="haustier">
+      <div class="field-left">
+        <label for="inputHaustier" data-i18n="lbl_pet">
+          Haustier Buff
+          <button type="button" class="info-icon" aria-label="Info">ℹ️</button>
+        </label>
+        <input id="inputHaustier" type="number" min="0"/>
+      </div>
+      <div class="info-box" aria-hidden="true">
+        <img class="info-img hidden" alt=""/>
+        <p class="info-text"></p>
+      </div>
+    </div>
 
-    <label data-i18n="label_cyrille">Cyrille Buff
-      <button class="info-btn" data-info="cyrille" aria-label="Info">ℹ️</button>
-    </label>
-    <input id="inputCyrille" type="number" min="0" placeholder="0">
+    <div class="field-row" data-info-key="cyrille">
+      <div class="field-left">
+        <label for="inputCyrille" data-i18n="lbl_cyrille">
+          Cyrille Buff
+          <button type="button" class="info-icon" aria-label="Info">ℹ️</button>
+        </label>
+        <input id="inputCyrille" type="number" min="0"/>
+      </div>
+      <div class="info-box" aria-hidden="true">
+        <img class="info-img hidden" alt=""/>
+        <p class="info-text"></p>
+      </div>
+    </div>
 
-    <label data-i18n="label_schwadron">Schwadronengrösse
-      <button class="info-btn" data-info="schwadron" aria-label="Info">ℹ️</button>
-    </label>
-    <input id="inputSchwadron" type="number" min="0" placeholder="0">
+    <div class="field-row" data-info-key="schwadron">
+      <div class="field-left">
+        <label for="inputSchwadron" data-i18n="lbl_squad">
+          Schwadronengrösse
+          <button type="button" class="info-icon" aria-label="Info">ℹ️</button>
+        </label>
+        <input id="inputSchwadron" type="number" min="0"/>
+      </div>
+      <div class="info-box" aria-hidden="true">
+        <img class="info-img hidden" alt=""/>
+        <p class="info-text"></p>
+      </div>
+    </div>
 
     <div class="results">
-      <div><span data-i18n="zw1">Anzahl Truppen pro Marsch</span><input id="zw1" readonly class="readonly"></div>
-      <div><span data-i18n="zw2">Totale Schwadronengrösse</span><input id="zw2" readonly class="readonly"></div>
-      <div><span data-i18n="endresult">Endergebnis (%)</span><input id="endResult" readonly class="readonly"></div>
+      <label for="zw1" data-i18n="res_per_march">Truppen pro Marsch</label><input id="zw1" readonly/>
+      <label for="zw2" data-i18n="res_total_squad">Totale Schwadronengrösse</label><input id="zw2" readonly/>
+      <label for="endResult" data-i18n="res_percent">Endergebnis (%)</label><input id="endResult" readonly/>
     </div>
 
     <div class="actions">
-      <button id="btnCalc" class="btn green" data-i18n="btn_calc">Berechnen</button>
-      <button id="btnAdvanced" class="btn blue" data-i18n="btn_advanced">Erweitertes Rechnen</button>
-      <button id="btnResetLeft" class="btn red" data-i18n="btn_reset_left">Zurücksetzen</button>
+      <button id="btnCalc" class="btn green" data-i18n="calc">Berechnen</button>
+      <button id="btnAdvanced" class="btn blue" data-i18n="advanced">Erweitertes Rechnen</button>
+      <button id="btnResetLeft" class="btn red" data-i18n="reset_left">Zurücksetzen</button>
     </div>
   </section>
 
-  <section id="rightPanel" class="panel right hidden" aria-hidden="true">
-    <h2 data-i18n="right_title">⚔️ Marschverteilung bei ungleichmässig verteilten Truppen</h2>
-
+  <section id="rightPanel" class="panel right hidden">
+    <h2 data-i18n="right_title">⚔️ Marschverteilung</h2>
     <div class="tableHeader">
-      <div class="col lockcol" data-i18n="col_fix">Marsch speichern</div>
-      <div class="col namecol" data-i18n="col_marsch">Marsch</div>
-      <div class="col pctcol" data-i18n="col_pct">% vom Endergebnis</div>
-      <div class="col controlcol" data-i18n="col_control">Anzahl pro Marsch / Total</div>
+      <div data-i18n="th_lock">Sperren</div>
+      <div data-i18n="th_march">Marsch</div>
+      <div data-i18n="th_percent">%</div>
+      <div data-i18n="th_count_total">Anzahl / Total</div>
     </div>
-
-    <div id="tableBody" class="tableBody">
-      <div class="muted" data-i18n="press_calc">Drücke "Erweitertes Rechnen", um die Verteilung zu erzeugen.</div>
-    </div>
-
-    <div class="tableFooter">
-      <div class="totals">Truppensumme: <span id="totalUsed">0</span> / <span id="totalCap">0</span></div>
-      <div class="footerBtns">
-        <button id="btnRecalc" class="btn green" data-i18n="btn_recalc">Neu berechnen</button>
-        <button id="btnReset" class="btn red" data-i18n="btn_reset">Werte zurücksetzen</button>
-      </div>
+    <div id="tableBody" class="tableBody"><div class="muted" data-i18n="prompt_advanced">Drücke „Erweitertes Rechnen“</div></div>
+    <div class="tableFooter"><span data-i18n="total_sum_label">Truppensumme:</span><span id="totalUsed">0</span> / <span id="totalCap">0</span></div>
+    <div class="actions">
+      <button id="btnRecalcRight" class="btn green" data-i18n="recalc_right">Neu berechnen</button>
+      <button id="btnResetRight" class="btn red" data-i18n="reset_right">Zurücksetzen</button>
     </div>
   </section>
 </main>
-
-<!-- Info Popup -->
-<div id="infoPopup" class="popup hidden" role="dialog" aria-hidden="true">
-  <button id="closeInfo" class="close" aria-label="Schliessen">✖</button>
-  <div id="infoContent"></div>
-  <img id="infoImage" alt="" style="max-width:100%;margin-top:8px;display:none"/>
-</div>
-
-<script src="translations.js"></script>
-<script src="script.js"></script>
+<script src="./translations.js" defer></script>
+<script src="./script.js" defer></script>
 </body>
 </html>
