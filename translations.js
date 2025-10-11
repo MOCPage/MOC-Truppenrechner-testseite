@@ -8,7 +8,7 @@ const TRANSLATIONS = {
     err_inputs:'Bitte gültige Werte eingeben.', err_first_calc:'Bitte zuerst links Berechnen drücken.',
     help_title:'MOC Truppenrechner – Hilfe',
     help_html:`<p><strong>Ziel:</strong> Der Rechner hilft, Truppen gleichmäßig auf mehrere Märsche zu verteilen und dabei Buffs (z. B. durch Haustier, Cyrille oder Schwadronenbonus) zu berücksichtigen.</p>
-      <h3>1️⃣ Basisrechner (linke Seite)</h3>
+      <h3>1️⃣ Basisrechner </h3>
       <ul>
         <li><strong>Anzahl Truppen:</strong> Gesamtzahl aller verfügbaren Truppen</li>
         <li><strong>Anzahl Märsche:</strong> Wie viele Märsche gleichzeitig möglich sind</li>
@@ -18,7 +18,7 @@ const TRANSLATIONS = {
       </ul>
       <p>Klicke auf ℹ️ neben einem Feld, um eine Infobox mit Bild und Beschreibung zu öffnen. Beim Klick auf das Bild schließt sich die Infobox wieder.</p>
       <p>Drücke <strong>„Berechnen“</strong>, um die Resultate zu sehen: Truppen pro Marsch, totale Schwadronengrösse und prozentuales Verhältnis.</p>
-      <h3>2️⃣ Marschverteilung (rechte Seite)</h3>
+      <h3>2️⃣ Marschverteilung </h3>
       <p>Klicke auf <strong>„Erweitertes Rechnen“</strong>, um die rechte Seite zu öffnen.</p>
       <ul>
         <li>Regler mit +/− Buttons pro Marsch</li>
@@ -27,7 +27,7 @@ const TRANSLATIONS = {
       </ul>
       <h3>3️⃣ Sprache & Speicherung</h3>
       <ul><li>Deutsch/Englisch/Französisch/Italienisch/Türkisch/Arabisch</li><li>Eingaben werden automatisch gespeichert</li></ul>`,
-    info_texts:{truppen:'Gesamtzahl aller verfügbaren Truppen', maersche:'Anzahl der gleichzeitig möglichen Märsche', haustier:'Bonus durch das aktive Haustier',
+    info_section_base:'Basisrechner', info_section_right:'Marschverteilung', info_texts:{truppen:'Gesamtzahl aller verfügbaren Truppen', maersche:'Anzahl der gleichzeitig möglichen Märsche', haustier:'Bonus durch das aktive Haustier',
       cyrille:'Bonus durch Cyrilles Fähigkeit', schwadron:'Basisgröße einer Schwadron'}
   },
   en:{site_title:'MOC Troop Calculator',
@@ -39,7 +39,7 @@ const TRANSLATIONS = {
     err_inputs:'Please enter valid values.', err_first_calc:'Please calculate on the left first.',
     help_title:'MOC Troop Calculator – Help',
     help_html:`<p><strong>Goal:</strong> Distribute troops evenly across marches and consider buffs (Pet, Cyrille, Squadron).</p>
-      <h3>1️⃣ Basic calculator (left)</h3>
+      <h3>1️⃣ Basic calculator </h3>
       <ul>
         <li><strong>Total troops</strong></li><li><strong>Number of marches</strong></li>
         <li><strong>Pet buff</strong></li><li><strong>Cyrille buff</strong></li><li><strong>Squadron size</strong></li>
@@ -49,7 +49,7 @@ const TRANSLATIONS = {
       <h3>2️⃣ March distribution (right)</h3>
       <ul><li>Slider with +/− per march</li><li><strong>Lock</strong> fixes a march</li><li><strong>Recalculate</strong> changes only unlocked marches</li></ul>
       <h3>3️⃣ Language & saving</h3><ul><li>DE/EN/FR/IT/TR/AR</li><li>Inputs are saved automatically</li></ul>`,
-    info_texts:{truppen:'Total number of available troops', maersche:'Number of simultaneous marches', haustier:'Bonus from the active pet',
+    info_section_base:'Basisrechner', info_section_right:'Marschverteilung', info_texts:{truppen:'Total number of available troops', maersche:'Number of simultaneous marches', haustier:'Bonus from the active pet',
       cyrille:'Bonus from Cyrille’s skill', schwadron:'Base size of a squadron'}
   },
   fr:{site_title:'Calculateur de troupes MOC',
@@ -61,13 +61,13 @@ const TRANSLATIONS = {
     err_inputs:'Veuillez saisir des valeurs valides.', err_first_calc:'Veuillez d’abord calculer à gauche.',
     help_title:'Aide – Calculateur de troupes MOC',
     help_html:`<p><strong>Objectif :</strong> Répartir les troupes entre les marches en tenant compte des bonus (familier, Cyrille, escadron).</p>
-      <h3>1️⃣ Calcul de base (gauche)</h3>
+      <h3>1️⃣ Calcul de base </h3>
       <ul><li>Troupes totales</li><li>Nombre de marches</li><li>Bonus familier</li><li>Bonus Cyrille</li><li>Taille d’escadron</li></ul>
       <p>Cliquez sur ℹ️ pour ouvrir une infobox avec image et texte. Cliquez sur l’image pour fermer.</p>
       <h3>2️⃣ Répartition (droite)</h3>
       <ul><li>Curseur avec +/−</li><li><strong>Verrouiller</strong> fige une marche</li><li><strong>Recalculer</strong> ne modifie que les marches déverrouillées</li></ul>
       <h3>3️⃣ Langue & sauvegarde</h3><ul><li>DE/EN/FR/IT/TR/AR</li><li>Saisie sauvegardée automatiquement</li></ul>`,
-    info_texts:{truppen:'Nombre total de troupes disponibles', maersche:'Nombre de marches simultanées', haustier:'Bonus du familier actif',
+    info_section_base:'Basisrechner', info_section_right:'Marschverteilung', info_texts:{truppen:'Nombre total de troupes disponibles', maersche:'Nombre de marches simultanées', haustier:'Bonus du familier actif',
       cyrille:'Bonus de la compétence de Cyrille', schwadron:'Taille de base d’un escadron'}
   },
   it:{site_title:'Calcolatore truppe MOC',
@@ -79,10 +79,10 @@ const TRANSLATIONS = {
     err_inputs:'Inserisci valori validi.', err_first_calc:'Calcola prima sulla sinistra.',
     help_title:'Aiuto – Calcolatore truppe MOC',
     help_html:`<p><strong>Obiettivo:</strong> Distribuire le truppe tra le marce considerando i bonus (animale, Cyrille, squadrone).</p>
-      <h3>1️⃣ Calcolatore base (sinistra)</h3>
+      <h3>1️⃣ Calcolatore base </h3>
       <ul><li>Truppe totali</li><li>Numero di marce</li><li>Bonus animale</li><li>Bonus Cyrille</li><li>Dimensione squadrone</li></ul>
       <p>Clic su ℹ️ per aprire l’infobox con immagine e testo. Clic sull’immagine per chiudere.</p>`,
-    info_texts:{truppen:'Numero totale di truppe disponibili', maersche:'Numero di marce simultanee', haustier:'Bonus dall’animale attivo',
+    info_section_base:'Basisrechner', info_section_right:'Marschverteilung', info_texts:{truppen:'Numero totale di truppe disponibili', maersche:'Numero di marce simultanee', haustier:'Bonus dall’animale attivo',
       cyrille:'Bonus dall’abilità di Cyrille', schwadron:'Dimensione base di uno squadrone'}
   },
   tr:{site_title:'MOC Asker Hesaplayıcı',
@@ -94,7 +94,7 @@ const TRANSLATIONS = {
     err_inputs:'Lütfen geçerli değerler girin.', err_first_calc:'Önce solda hesaplayın.',
     help_title:'Yardım – MOC Asker Hesaplayıcı',
     help_html:`<p><strong>Amaç:</strong> Askerleri seferlere dağıtmak ve destekleri dikkate almak (evcil hayvan, Cyrille, filo).</p>`,
-    info_texts:{truppen:'Mevcut toplam asker sayısı', maersche:'Aynı anda yapılabilecek sefer sayısı', haustier:'Aktif evcil hayvandan gelen destek',
+    info_section_base:'Basisrechner', info_section_right:'Marschverteilung', info_texts:{truppen:'Mevcut toplam asker sayısı', maersche:'Aynı anda yapılabilecek sefer sayısı', haustier:'Aktif evcil hayvandan gelen destek',
       cyrille:'Cyrille yeteneğinden destek', schwadron:'Bir filonun temel büyüklüğü'}
   },
   ar:{site_title:'حاسبة قوات MOC',
@@ -106,7 +106,7 @@ const TRANSLATIONS = {
     err_inputs:'يرجى إدخال قيم صحيحة.', err_first_calc:'يرجى الحساب أولاً في اليسار.',
     help_title:'مساعدة – حاسبة قوات MOC',
     help_html:`<p><strong>الهدف:</strong> توزيع القوات على المسيرات مع احتساب التعزيزات (الحيوان الأليف، سيريل، السرب).</p>`,
-    info_texts:{truppen:'إجمالي عدد القوات المتاحة', maersche:'عدد المسيرات المتزامنة', haustier:'تعزيز من الحيوان الأليف النشط',
+    info_section_base:'Basisrechner', info_section_right:'Marschverteilung', info_texts:{truppen:'إجمالي عدد القوات المتاحة', maersche:'عدد المسيرات المتزامنة', haustier:'تعزيز من الحيوان الأليف النشط',
       cyrille:'تعزيز من مهارة سيريل', schwadron:'الحجم الأساسي للسرب'}
   }
 };

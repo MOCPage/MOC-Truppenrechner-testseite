@@ -120,3 +120,21 @@ html[dir="rtl"] .info-box{left:auto;right:100%;margin-left:0;margin-right:12px}
   .left,.right{flex:1 1 auto;max-width:100%}
   .field-row{grid-template-columns:1fr}
 }
+/* --- Mobile optimization improvements --- */
+@media (max-width: 980px){
+  .main{flex-direction:column;padding:12px}
+  .left,.right{flex:1 1 auto;max-width:100%;}
+  .field-row{grid-template-columns:1fr;}
+  .info-box{
+    position:relative;
+    left:0;right:0;
+    margin:8px 0 0;
+    width:100%;
+    opacity:1;
+    transform:none;
+  }
+  input, button, select{font-size:1rem;}
+  .slider{height:12px;}
+  .slider::-webkit-slider-thumb{width:24px;height:24px;}
+  .slider::-moz-range-thumb{width:24px;height:24px;}
+}
