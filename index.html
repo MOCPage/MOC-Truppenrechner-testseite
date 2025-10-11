@@ -27,16 +27,15 @@
   <div class="modal-content">
     <button id="closeHelp" class="close-btn">❌</button>
     <h2 data-i18n="help_title">MOC Truppenrechner – Hilfe</h2>
-    <div class="help-text" id="helpText">
-      <!-- help text will be injected by translations.js for each language -->
-    </div>
+    <div class="help-text" id="helpText"></div>
   </div>
 </div>
 
 <main class="main">
   <section class="panel left">
-    <h2 data-i18n="left_title">🧮 Basisrechner für gleichmässig verteilte Truppen</h2>
+    <h2 data-i18n="left_title">🧮 Basisrechner</h2>
 
+    <!-- Feld: Anzahl Truppen -->
     <div class="field-row" data-info-key="truppen">
       <div class="field-left">
         <label for="inputTruppen" data-i18n="lbl_troops">
@@ -47,10 +46,11 @@
       </div>
       <div class="info-box" aria-hidden="true">
         <img class="info-img hidden" alt=""/>
-        <p class="info-text"></p>
+        <div class="info-text"></div>
       </div>
     </div>
 
+    <!-- Feld: Anzahl Märsche -->
     <div class="field-row" data-info-key="maersche">
       <div class="field-left">
         <label for="inputMaersche" data-i18n="lbl_marches">
@@ -61,10 +61,11 @@
       </div>
       <div class="info-box" aria-hidden="true">
         <img class="info-img hidden" alt=""/>
-        <p class="info-text"></p>
+        <div class="info-text"></div>
       </div>
     </div>
 
+    <!-- Feld: Haustier Buff -->
     <div class="field-row" data-info-key="haustier">
       <div class="field-left">
         <label for="inputHaustier" data-i18n="lbl_pet">
@@ -75,10 +76,11 @@
       </div>
       <div class="info-box" aria-hidden="true">
         <img class="info-img hidden" alt=""/>
-        <p class="info-text"></p>
+        <div class="info-text"></div>
       </div>
     </div>
 
+    <!-- Feld: Cyrille Buff -->
     <div class="field-row" data-info-key="cyrille">
       <div class="field-left">
         <label for="inputCyrille" data-i18n="lbl_cyrille">
@@ -89,10 +91,11 @@
       </div>
       <div class="info-box" aria-hidden="true">
         <img class="info-img hidden" alt=""/>
-        <p class="info-text"></p>
+        <div class="info-text"></div>
       </div>
     </div>
 
+    <!-- Feld: Schwadronengrösse -->
     <div class="field-row" data-info-key="schwadron">
       <div class="field-left">
         <label for="inputSchwadron" data-i18n="lbl_squad">
@@ -103,7 +106,7 @@
       </div>
       <div class="info-box" aria-hidden="true">
         <img class="info-img hidden" alt=""/>
-        <p class="info-text"></p>
+        <div class="info-text"></div>
       </div>
     </div>
 
@@ -122,20 +125,30 @@
 
   <section id="rightPanel" class="panel right hidden">
     <h2 data-i18n="right_title">⚔️ Marschverteilung</h2>
+
     <div class="tableHeader">
       <div data-i18n="th_lock">Sperren</div>
       <div data-i18n="th_march">Marsch</div>
       <div data-i18n="th_percent">%</div>
       <div data-i18n="th_count_total">Anzahl / Total</div>
     </div>
-    <div id="tableBody" class="tableBody"><div class="muted" data-i18n="prompt_advanced">Drücke „Erweitertes Rechnen“</div></div>
-    <div class="tableFooter"><span data-i18n="total_sum_label">Truppensumme:</span><span id="totalUsed">0</span> / <span id="totalCap">0</span></div>
+
+    <div id="tableBody" class="tableBody">
+      <div class="muted" data-i18n="prompt_advanced">Drücke „Erweitertes Rechnen“</div>
+    </div>
+
+    <div class="tableFooter">
+      <span data-i18n="total_sum_label">Truppensumme:</span>
+      <span id="totalUsed">0</span> / <span id="totalCap">0</span>
+    </div>
+
     <div class="actions">
       <button id="btnRecalcRight" class="btn green" data-i18n="recalc_right">Neu berechnen</button>
       <button id="btnResetRight" class="btn red" data-i18n="reset_right">Zurücksetzen</button>
     </div>
   </section>
 </main>
+
 <script src="./translations.js" defer></script>
 <script src="./script.js" defer></script>
 </body>

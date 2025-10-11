@@ -57,7 +57,8 @@ function attachInfoBoxes(){
       document.querySelectorAll('.field-row.open').forEach(r => { if (r !== row) r.classList.remove('open'); });
       const key = row.dataset.infoKey;
       const infoTexts = (TRANSLATIONS[currentLang()]?.info_texts) || TRANSLATIONS.de.info_texts;
-      const title = document.createElement('h4'); title.textContent = '🧮 ' + (TRANSLATIONS[currentLang()]?.info_section_base || 'Basisrechner'); txt.innerHTML=''; txt.appendChild(title); txt.appendChild(document.createTextNode(infoTexts[key] || ''));
+      const title = (TRANSLATIONS[currentLang()]?.info_section_base) || 'Basisrechner';
+      txt.innerHTML = `<h4>🧮 ${title}</h4><p>${infoTexts[key] || ''}</p>`;
       const src = INFO_IMAGES[key];
       if (src) { img.src = src; img.classList.remove('hidden'); }
       else { img.classList.add('hidden'); img.removeAttribute('src'); }
